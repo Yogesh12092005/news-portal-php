@@ -1,0 +1,161 @@
+<!-- CONTENT -->
+		<section id="content">
+			<div class="page page-forms-validate">
+				<!-- bradcome -->
+				<div class="bg-light lter b-b wrapper-md mb-10">
+					<div class="row">
+						<div class="col-sm-6 col-xs-12">
+							<h1 class="h3 m-0">Reporter Reg Form</h1>
+							<!-- <small class="text-muted">Welcome to Falcon application</small> -->
+						</div>
+					</div>
+				</div>
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<section class="boxs">
+							<div class="boxs-header">
+								<h3 class="custom-font hb-blush">
+									<strong>Edit</strong> Reporter</h3>
+							</div>
+							<div class="boxs-body">
+								<form class="form-horizontal" enctype="multipart/form-data" name="form4" role="form" id="form4" method="post" action="<?php echo site_url() ?>/reporterregcontroller/up_reporterreg/<?php echo $data->repid ?>" data-parsley-validate>
+						
+                                    <div class="form-group">
+										<label class="col-sm-3 control-label">Name</label>
+										<div class="col-sm-9">
+											<input type="text" name="rname" class="form-control" value="<?php echo $data->rname ?>" placeholder="Name" data-parsley-trigger="change" required>
+										</div>
+									</div>
+									<hr class="line-dashed full-witdh-line" />
+						
+
+                                    <div class="form-group">
+										<label class="col-sm-3 control-label">Email</label>
+										<div class="col-sm-9">
+											<input type="text" name="remail" class="form-control" value="<?php echo $data->remail ?>" placeholder="Email" data-parsley-trigger="change" required>
+										</div>
+									</div>
+									<hr class="line-dashed full-witdh-line" />
+                        
+
+                                    <div class="form-group">
+                                    <label class="col-sm-3 control-label">Password</label>
+                                    <div class="col-sm-9">
+                                    <input type="password" name="rpassword" class="form-control" value="<?php echo $data->rpassword ?>" placeholder="password" data-parsley-trigger="change" required>
+                                    </div>
+                                    </div>
+                                    <hr class="line-dashed full-witdh-line" />
+                        
+
+
+                                    <div class="form-group">
+                                    <label class="col-sm-3 control-label">Gender</label>
+                                    <div class="col-sm-9">
+                                     
+                                        <div class="col-sm-offset-2 col-sm-10 checkbox">
+                                        <label>
+                                        <input type="radio" name="gender" value="male" <?php if($data->rgender=="male") echo "checked"; ?>>male</label>
+                                       <label>
+                                        <input type="radio" name="gender" value="female" <?php if($data->rgender=="female") echo "checked"; ?>>female</label>
+                                      
+                                    </div>
+
+
+                                    </div>
+                                    </div>
+                                    <hr class="line-dashed full-witdh-line" />
+        
+                                    
+                                    
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Address</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="raddress" class="form-control" value="<?php echo $data->raddress ?>" placeholder="address" data-parsley-trigger="change" required>
+                                        </div>
+                                    </div>
+                                    <hr class="line-dashed full-witdh-line" />
+
+                                    
+                                    <div class="form-group">
+                                    <label class="col-sm-3 control-label">Mobileno</label>
+                                    <div class="col-sm-9">
+                                    <input type="text" name="rmobile" class="form-control" value="<?php echo $data->rmno ?>" placeholder="Mobile no" data-parsley-trigger="change" required>
+                                    </div>
+                                    </div>
+                                    <hr class="line-dashed full-witdh-line" />
+
+
+                                     <hr class="line-dashed full-witdh-line" />
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">File Input</label>
+                                        	<span class="btn btn-raised btn-success fileinput-button">
+												<i class="glyphicon glyphicon-plus"></i>
+												<span>Add files...</span>
+												<input type="file" name="rimage" multiple>
+											</span>
+											<img src="<?php echo base_url() ?>imgupload/<?php echo $data->rimage ?>" width="100" height="100" style="border:1px solid black">
+                                            
+                                    </div>
+                        
+                                </div>
+
+							<div class="boxs-footer text-right bg-tr-black lter dvd dvd-top">
+								<button type="submit" class="btn btn-raised btn-default" id="form4Submit">Submit</button>
+							</div>
+						
+                        </form>
+						
+                        </section>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/ CONTENT -->
+	</div>
+	<!--/ Application Content -->
+
+	<!-- Vendor JavaScripts -->
+	<script src="<?php echo base_url() ?>assets/bundles/libscripts.bundle.js"></script>
+	<script src="<?php echo base_url() ?>assets/bundles/vendorscripts.bundle.js"></script>
+
+	<script src="<?php echo base_url() ?>assets/js/vendor/parsley/parsley.min.js"></script>
+	<!--/ vendor javascripts -->
+
+	<!-- Custom JavaScripts  -->
+	<script src="<?php echo base_url() ?>assets/bundles/mainscripts.bundle.js"></script> <!-- Custom Js --> 
+	<!--/ custom javascripts -->
+
+	<!-- Page Specific Scripts  -->
+	<script >
+		$(window).load(function () {
+			$('#form1').parsley().subscribe('parsley:field:validate', function () {
+				if ($('#form1').parsley().isValid()) {
+					$('#form1Submit').prop('disabled', false);
+				} else {
+					$('#form1Submit').prop('disabled', true);
+				}
+			});
+
+			$('#form1Submit').on('click', function () {
+				$('#form1').submit();
+			});
+
+			$('#form2Submit').on('click', function () {
+				$('#form2').submit();
+			});
+
+			$('#form3Submit').on('click', function () {
+				$('#form3').submit();
+			});
+
+			$('#form4Submit').on('click', function () {
+				$('#form4').submit();
+			});
+		});
+	</script>
+	<!--/ Page Specific Scripts -->
+</body>
+
+<!-- Mirrored from thememakker.com/templates/falcon/html/form-validate.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Dec 2019 06:44:26 GMT -->
+</html>
